@@ -1,5 +1,5 @@
 <div >
-    <h1><b>Desktop Application With Java Swing - Technical Service App </b></h1>
+    <h2><b>Desktop Application With Java Swing - Technical Service App </b></h2>
 </div>
 
 
