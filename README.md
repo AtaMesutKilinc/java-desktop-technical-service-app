@@ -45,5 +45,5 @@
 
 *Name:* Ata Mesut  <br>
 *Surname:* Kilinc <br>
-*Email:* katamesut@gmail.com
+*Email:* katamesut@gmail.com<br>
 *LinkedIn:* https://www.linkedin.com/in/ata-mesut-k%C4%B1l%C4%B1n%C3%A7-54655a177/
