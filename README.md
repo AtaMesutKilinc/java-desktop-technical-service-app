@@ -1,13 +1,6 @@
-<div >
-    <h2><b>Desktop Application With Java Swing - Technical Service App </b></h2>
-</div>
 
-
-
+# Desktop Application With Java Swing - Technical Service App 
 - My aim with the technical service project is to complete the control of the new product registration and repaired products in the technical service centers without any confusion.
-
-# Java Desktop Application 
-
 This application is a technical service application. The user of the application can add their new customers to the customer list and follow the products to be repaired through this system. It can also update or delete customer information.
 You can update or delete the information about the product through this system. Only the system owner user can login to the system. Its products are examined in four cases.
 
