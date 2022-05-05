@@ -25,29 +25,28 @@ You can update or delete the information about the product through this system. 
 
 ## Project Overview 
 
-|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo1.JPG" width="300">
-|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo2.JPG" width="300">|
+|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo1.JPG" width="500">
 
-|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo3.JPG" width="300">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo4.JPG" width="300">|
+|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo2.JPG" width="500">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo3.JPG" width="500">
 
-|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo5.JPG" width="300">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo6.JPG" width="300">|
+|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo4.JPG" width="500">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo5.JPG" width="500">
 
-|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo7.JPG" width="300">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo8.JPG" width="300">|
+|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo6.JPG" width="500">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo7.JPG" width="500">
 
-|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo9.JPG" width="300">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo10.JPG" width="300">|
+|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo8.JPG" width="500">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo9.JPG" width="500">
 
-|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo11.JPG" width="300">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo12.JPG" width="300">|
+|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo10.JPG" width="500">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo11.JPG" width="500">
 
-|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo13.JPG" width="300">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo14.JPG" width="300">|
+|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo12.JPG" width="500">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo13.JPG" width="500">
 
-|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo15.JPG" width="300">| 
+|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo14.JPG" width="500">|<img src="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/photo15.JPG" width="500">| 
 
 ## Demo Account
-| <img src ="https://github.com/nazligencel/java-desktop-technical-service/blob/main/images/mail.png" width ="20px" height = "20px" style="float:left" > E-Mail | <img src ="https://github.com/nazligencel/java-desktop-technical-service/blob/main/images/password.png" width ="20px" height = "20px" style="float:left" > Password | 
+| <img src ="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/mail.png" width ="20px" height = "20px" style="float:left" > E-Mail | <img src ="https://github.com/AtaMesutKilinc/java-desktop-technical-service-app/blob/main/images/password.png" width ="20px" height = "20px" style="float:left" > Password | 
 | :------------: | :------------: | 
-|admin@email.com| 12345 |
+|ata@mail.com| 12345 |
 
 
-*Name:* Nazlı  <br>
-*Surname:* GENÇEL <br>
-*Email:* nazligencel82@gmail.com
+*Name:* Ata Mesut  <br>
+*Surname:* Kilinc <br>
+*Email:* katamesut@gmail.com
