@@ -38,7 +38,7 @@ public class Login extends Base {
 
     public Login() {
         initComponents();
-        txtEmail.setText("ata@mail.com"); //dolu getir.
+        txtEmail.setText("ata@mail.com");
         txtPassword.setText("12345");
 
         //Mail atmak için
@@ -72,26 +72,25 @@ public class Login extends Base {
 
     //user Login
     public void userLogin(){
-        String email=txtEmail.getText().trim().toLowerCase();  //boşluk varsa al trimle sil
-        String password=String.valueOf(txtPassword.getPassword()).trim(); //char dizisi getirir get password-- stringe dönüştürdük
-        if (email.equals("")){ //email boşssa
+        String email=txtEmail.getText().trim().toLowerCase();
+        String password=String.valueOf(txtPassword.getPassword()).trim();
+        if (email.equals("")){
             lblError.setText("Email is Empty!!!");
             txtEmail.requestFocus();
-        }else if(!Utils.Util.isValidEmailAddress(email)){ //fprmatı başkaysa
+        }else if(!Utils.Util.isValidEmailAddress(email)){
             lblError.setText("Email Validation Error!!!");
             txtEmail.requestFocus();
-        }else if (password.length()==0){ //boşşa sıfırsa
+        }else if (password.length()==0){
             lblError.setText("Password is Empty!!!");
-            txtPassword.requestFocus();//imleç otomatik olarak passwworde gelicek
+            txtPassword.requestFocus();
         }else {
            lblError.setText("");
-           boolean status=user.userLogin(email,password); //veritabanına gittik burada
+           boolean status=user.userLogin(email,password);
            if (status){
-               //giriş başarılı
+
                Dashboard dashboard= new Dashboard();
                dashboard.setVisible(true);
-               dispose();//öldür zombiyi
-
+               dispose();
            }else{
                lblError.setText("Email or Password Fail!!!");
            }

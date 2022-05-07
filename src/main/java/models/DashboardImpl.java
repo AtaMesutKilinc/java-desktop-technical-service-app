@@ -35,7 +35,7 @@ public class DashboardImpl implements IDashboard{
         DefaultTableModel tableModel= new DefaultTableModel();
 
         tableModel.addColumn("sid");
-        tableModel.addColumn("Name");  //kolon ekledik
+        tableModel.addColumn("Name");
         tableModel.addColumn("Surname");
         tableModel.addColumn("Email");
         tableModel.addColumn("Phone");
@@ -50,12 +50,12 @@ public class DashboardImpl implements IDashboard{
         tableModel.addColumn("Status");
         tableModel.addColumn("Price");
 
-        if (data !=null && !data.equals("")){//data null olmadığında ve boş olmadığında
-            data=data.toLowerCase(Locale.ROOT); //küçüğe dönüştür txtfieldden adlığımızı
+        if (data !=null && !data.equals("")){
+            data=data.toLowerCase(Locale.ROOT);
             //arama soruçlarını gönder.
             List<Service> searchedServiceList = new ArrayList<>();
             for(Service item:serviceRepairedList){
-                if (item.getCustomer().getName().toLowerCase(Locale.ROOT).contains(data)  //root hangi yerde açılırsa oranın dilini alacak
+                if (item.getCustomer().getName().toLowerCase(Locale.ROOT).contains(data)
                         ||item.getCustomer().getSurname().toLowerCase(Locale.ROOT).contains(data)
                         || item.getCustomer().getEmail().toLowerCase(Locale.ROOT).contains(data)
                         ||item.getCustomer().getPhone().toLowerCase(Locale.ROOT).contains(data)
@@ -64,20 +64,20 @@ public class DashboardImpl implements IDashboard{
                         || item.getDate().toLowerCase(Locale.ROOT).contains(data))
 
                 {
-                    searchedServiceList.add(item); //arama sonucunu ekle listeye.
+                    searchedServiceList.add(item);
                 }
             }
 
 
 
-            serviceRepairedList=searchedServiceList; //listeyi güncelle
+            serviceRepairedList=searchedServiceList;
 
 
         }
 
 
 
-        for(Service item:serviceRepairedList){ //car türünde bir nesne getiriyor.
+        for(Service item:serviceRepairedList){
             String state="";
             if (item.getStatus()==0){
                 state= "Product Just Arrived";
@@ -159,7 +159,7 @@ public class DashboardImpl implements IDashboard{
         DefaultTableModel tableModel= new DefaultTableModel();
 
         tableModel.addColumn("sid");
-        tableModel.addColumn("Name");  //kolon ekledik
+        tableModel.addColumn("Name");
         tableModel.addColumn("Surname");
         tableModel.addColumn("Email");
         tableModel.addColumn("Phone");
@@ -174,12 +174,12 @@ public class DashboardImpl implements IDashboard{
         tableModel.addColumn("Status");
         tableModel.addColumn("Price");
 
-        if (data !=null && !data.equals("")){//data null olmadığında ve boş olmadığında
-            data=data.toLowerCase(Locale.ROOT); //küçüğe dönüştür txtfieldden adlığımızı
+        if (data !=null && !data.equals("")){
+            data=data.toLowerCase(Locale.ROOT);
             //arama soruçlarını gönder.
             List<Service> searchedServiceList = new ArrayList<>();
             for(Service item:serviceArrivedList){
-                if (item.getCustomer().getName().toLowerCase(Locale.ROOT).contains(data)  //root hangi yerde açılırsa oranın dilini alacak
+                if (item.getCustomer().getName().toLowerCase(Locale.ROOT).contains(data)
                         ||item.getCustomer().getSurname().toLowerCase(Locale.ROOT).contains(data)
                         || item.getCustomer().getEmail().toLowerCase(Locale.ROOT).contains(data)
                         ||item.getCustomer().getPhone().toLowerCase(Locale.ROOT).contains(data)
@@ -188,20 +188,20 @@ public class DashboardImpl implements IDashboard{
                         || item.getDate().toLowerCase(Locale.ROOT).contains(data))
 
                 {
-                    searchedServiceList.add(item); //arama sonucunu ekle listeye.
+                    searchedServiceList.add(item);
                 }
             }
 
 
 
-            serviceArrivedList=searchedServiceList; //listeyi güncelle
+            serviceArrivedList=searchedServiceList;
 
 
         }
 
 
 
-        for(Service item:serviceArrivedList){ //car türünde bir nesne getiriyor.
+        for(Service item:serviceArrivedList){
             String state="";
             if (item.getStatus()==0){
                 state= "Product Just Arrived";

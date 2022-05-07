@@ -31,7 +31,7 @@ public class ArchiveImpl implements IArchive {
         DefaultTableModel tableModel= new DefaultTableModel();
 
         tableModel.addColumn("sid");
-        tableModel.addColumn("Name");  //kolon ekledik
+        tableModel.addColumn("Name");
         tableModel.addColumn("Surname");
         tableModel.addColumn("Email");
         tableModel.addColumn("Phone");
@@ -46,12 +46,12 @@ public class ArchiveImpl implements IArchive {
         tableModel.addColumn("Status");
         tableModel.addColumn("Price");
 
-        if (data !=null && !data.equals("")){//data null olmadığında ve boş olmadığında
-            data=data.toLowerCase(Locale.ROOT); //küçüğe dönüştür txtfieldden adlığımızı
-            //arama soruçlarını gönder.
+        if (data !=null && !data.equals("")){
+            data=data.toLowerCase(Locale.ROOT);
+
             List<Service> searchedServiceList = new ArrayList<>();
             for(Service item:archiveList){
-                if (item.getCustomer().getName().toLowerCase(Locale.ROOT).contains(data)  //root hangi yerde açılırsa oranın dilini alacak
+                if (item.getCustomer().getName().toLowerCase(Locale.ROOT).contains(data)
                         ||item.getCustomer().getSurname().toLowerCase(Locale.ROOT).contains(data)
                         || item.getCustomer().getEmail().toLowerCase(Locale.ROOT).contains(data)
                         ||item.getCustomer().getPhone().toLowerCase(Locale.ROOT).contains(data)
@@ -60,20 +60,20 @@ public class ArchiveImpl implements IArchive {
                         || item.getDate().toLowerCase(Locale.ROOT).contains(data))
 
                 {
-                    searchedServiceList.add(item); //arama sonucunu ekle listeye.
+                    searchedServiceList.add(item);
                 }
             }
 
 
 
-            archiveList=searchedServiceList; //listeyi güncelle
+            archiveList=searchedServiceList;
 
 
         }
 
 
 
-        for(Service item:archiveList){ //car türünde bir nesne getiriyor.
+        for(Service item:archiveList){
             String state="";
             if (item.getStatus()==0){
                 state= "Product Just Arrived";

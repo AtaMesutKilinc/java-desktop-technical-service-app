@@ -128,7 +128,7 @@ public class CustomerImpl implements ICustomer{
 
     //todo : search
     @Override
-    public List<Customer> customerSearch(String data) {//aranılan şey gelicek
+    public List<Customer> customerSearch(String data) {
         try
         {
             String sql = "select * from customer where like ";
@@ -163,20 +163,20 @@ public class CustomerImpl implements ICustomer{
 
     }
 
-    public DefaultTableModel customerModel(){  //Model oluşturduk datatablemodel ile sütın ve sayırlar oluşturduk
+    public DefaultTableModel customerModel(){
         customerList();
 
         DefaultTableModel tableModel= new DefaultTableModel();
 
-        tableModel.addColumn("cid");  //kolon ekledik
+        tableModel.addColumn("cid");
         tableModel.addColumn("Name");
         tableModel.addColumn("Surname");
         tableModel.addColumn("Email");
         tableModel.addColumn("Phone");
         tableModel.addColumn("Address");
 
-        for(Customer item:customerList){ //car türünde bir nesne getiriyor.
-            Object[] row={item.getCid(),item.getName(),item.getSurname(),item.getEmail(),item.getPhone(),item.getAddress()};//item.getCid(),
+        for(Customer item:customerList){
+            Object[] row={item.getCid(),item.getName(),item.getSurname(),item.getEmail(),item.getPhone(),item.getAddress()};
 
             tableModel.addRow(row);
         }

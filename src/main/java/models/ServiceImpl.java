@@ -23,9 +23,9 @@ public class ServiceImpl implements IService{
 //    Customer customer=new Customer();
 
     public ServiceImpl() {
-        cList=serviceCustomerList(); //listeye ekle metotdaki listi buraya aktar //sürekli liste oluşturulduğunda db de connection atmayacak.
-        //sadece 1 sefer çalışır constructor için. 1 defa dolacak.
-        cListCopy=cList; //bir kopyasını aldık.
+        cList=serviceCustomerList();
+
+        cListCopy=cList;
 
     }
 
@@ -33,7 +33,7 @@ public class ServiceImpl implements IService{
 
 
     @Override
-    public List<Customer> serviceCustomerList() { //müşterileri tersten sıralayarak listeliyoruz
+    public List<Customer> serviceCustomerList() {
         List<Customer> customerList=new ArrayList<>();
         try
         {
@@ -70,40 +70,40 @@ public class ServiceImpl implements IService{
     @Override
     public DefaultTableModel serviceCustomerTable(String data) {
 
-        cList=cListCopy; //aşağıda clist tüketildiğinden dolayı copyadaki orjinali tekrar attık
+        cList=cListCopy;
 
         DefaultTableModel tableModel= new DefaultTableModel();
-        tableModel.addColumn("Cid");  //kolon ekledik
+        tableModel.addColumn("Cid");
         tableModel.addColumn("Name");
         tableModel.addColumn("Surname");
         tableModel.addColumn("Email");
         tableModel.addColumn("Phone");
         tableModel.addColumn("Address");
 
-        if (data !=null && !data.equals("")){//data null olmadığında ve boş olmadığında
-            data=data.toLowerCase(Locale.ROOT); //küçüğe dönüştür txtfieldden adlığımızı
-            //arama soruçlarını gönder.
+        if (data !=null && !data.equals("")){
+            data=data.toLowerCase(Locale.ROOT);
+
             List<Customer> searchedCustomerList = new ArrayList<>();
             for(Customer item:cList){
-                if (item.getName().toLowerCase(Locale.ROOT).contains(data)  //root hangi yerde açılırsa oranın dilini alacak
+                if (item.getName().toLowerCase(Locale.ROOT).contains(data)
                         || item.getSurname().toLowerCase(Locale.ROOT).contains(data)
                         || item.getEmail().toLowerCase(Locale.ROOT).contains(data)
                         || item.getPhone().toLowerCase(Locale.ROOT).contains(data)
                         || item.getAddress().toLowerCase(Locale.ROOT).contains(data))
                 {
-                    searchedCustomerList.add(item); //arama sonucunu ekle listeye.
+                    searchedCustomerList.add(item);
                 }
             }
 
 
 
-            cList=searchedCustomerList; //listeyi güncelle
+            cList=searchedCustomerList;
 
 
         }
 
-        //tüm bilgileri gönder
-        for(Customer item:cList){ //her türlü satır ekleneceğinden.
+
+        for(Customer item:cList){
             Object[] row={item.getCid(),item.getName(),item.getSurname(),item.getEmail(),item.getPhone(),item.getAddress()};
             tableModel.addRow(row);
         }
@@ -116,10 +116,10 @@ public class ServiceImpl implements IService{
         try {
 
             String sql="INSERT INTO service VALUES (null,?,?,?,?,?,?,?)";
-            PreparedStatement pre=db.connect().prepareStatement(sql);  //bağlantı yaptık connectten türettik. ayrıştır ve hazırla manasında
+            PreparedStatement pre=db.connect().prepareStatement(sql);
 
-            pre.setInt(1,service.getCid());  //string ise setstring int ise setınteger.
-            pre.setString(2,service.getTitle());  //1 den başlar.soru işareti sırası.
+            pre.setInt(1,service.getCid());
+            pre.setString(2,service.getTitle());
             pre.setString(3,service.getInfo());
             pre.setInt(4,service.getDays());
             pre.setString(5,service.getDate());
@@ -151,10 +151,10 @@ public class ServiceImpl implements IService{
 
 
         } catch (Exception ex) {
-            System.err.println("serviceDelete Error: "+ex); //err kırmızı gösteriyor.
+            System.err.println("serviceDelete Error: "+ex);
             ex.printStackTrace();
         } finally {
-            db.close(); //açık olan
+            db.close();
         }
         return status;
     }
@@ -166,8 +166,8 @@ public class ServiceImpl implements IService{
         try {
             String sql = "UPDATE service SET cid=?,title=?,info=?,days=?,date=?,status=?,price=? where sid=?";
             PreparedStatement pre = db.connect().prepareStatement(sql);
-            pre.setInt(1,service.getCid());  //string ise setstring int ise setınteger.
-            pre.setString(2,service.getTitle());  //1 den başlar.soru işareti sırası.
+            pre.setInt(1,service.getCid());
+            pre.setString(2,service.getTitle());
             pre.setString(3,service.getInfo());
             pre.setInt(4,service.getDays());
             pre.setString(5,service.getDate());
@@ -175,16 +175,16 @@ public class ServiceImpl implements IService{
             pre.setInt(7,service.getPrice());
             pre.setInt(8,service.getSid());
             status= pre.executeUpdate();
-            //soru işaretlerine gönderilecek olan datanın gönderim yönteminin bir adıda bind yöntemi olarak geçer.
+
             status= pre.executeUpdate();
 
 
 
         } catch (Exception ex) {
-            System.err.println("serviceUpdate Error: "+ex); //err kırmızı gösteriyor.
+            System.err.println("serviceUpdate Error: "+ex);
             ex.printStackTrace();
         } finally {
-            db.close(); //açık olan
+            db.close();
         }
         return status;
     }
@@ -250,7 +250,7 @@ public class ServiceImpl implements IService{
         DefaultTableModel tableModel= new DefaultTableModel();
 
         tableModel.addColumn("sid");
-        tableModel.addColumn("Name");  //kolon ekledik
+        tableModel.addColumn("Name");
         tableModel.addColumn("Surname");
         tableModel.addColumn("Email");
         tableModel.addColumn("Phone");
@@ -265,7 +265,7 @@ public class ServiceImpl implements IService{
         tableModel.addColumn("Status");
         tableModel.addColumn("Price");
         list=serviceList();
-        for(Service item:list){ //car türünde bir nesne getiriyor.
+        for(Service item:list){
             String state="";
             if (item.getStatus()==0){
                 state= "Product Just Arrived";

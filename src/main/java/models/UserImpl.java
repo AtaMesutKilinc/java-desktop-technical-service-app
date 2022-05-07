@@ -23,18 +23,18 @@ public class UserImpl implements IUser {
         try {
             String sql = "UPDATE user SET name=?,surname=?,email=?,password=? where uid=?";
             PreparedStatement pre = db.connect().prepareStatement(sql);
-            pre.setString(1,user.getName());  //string ise setstring int ise setınteger.
-            pre.setString(2,user.getSurname());  //1 den başlar.soru işareti sırası.
+            pre.setString(1,user.getName());
+            pre.setString(2,user.getSurname());
             pre.setString(3,user.getEmail());
-            pre.setString(4,Util.MD5(user.getPassword())); //md5 e çevir hashcode a
+            pre.setString(4,Util.MD5(user.getPassword()));
             pre.setInt(5,user.getUid());
-            //soru işaretlerine gönderilecek olan datanın gönderim yönteminin bir adıda bind yöntemi olarak geçer.
+
             status= pre.executeUpdate();
 
 
 
         } catch (Exception ex) {
-            System.err.println("userUpdate Error: "+ex); //err kırmızı gösteriyor.
+            System.err.println("userUpdate Error: "+ex);
             ex.printStackTrace();
         } finally {
             db.close(); //açık olan
@@ -45,19 +45,19 @@ public class UserImpl implements IUser {
     @Override
     public boolean userLogin(String email, String password) {
         boolean status=false;
-        //try cach finally elzem
+
         try {
             String sql="select * from user where email=? and password=?";
             PreparedStatement pre= db.connect().prepareStatement(sql);
-            pre.setString(1,email); //parametredeki içindeki email passwordu atıtk
-            pre.setString(2,Util.MD5(password)); //şifreyi dönüştür.
+            pre.setString(1,email);
+            pre.setString(2,Util.MD5(password));
 
-            ResultSet rs=pre.executeQuery();    //rs e attık aldığımız verileri.
-                                                //tekil data bekliyoruz.  //yukardaki sorgudan veri gelirse true olacak statu rs nextten veri gelmezse false döncek
-            status=rs.next();                //sonraki satır var mı diye kontrol edicez varsa true dicez veri varmı diye kontrol ediyoz.
+            ResultSet rs=pre.executeQuery();
 
-            if (status){//burdaki isim ve soyismi alıp name e atıcaz true ise status
-               name = rs.getString("name")+" "+rs.getString("surname"); //sütun ismiyle değerine ulaşmış olduk.
+            status=rs.next();
+
+            if (status){
+               name = rs.getString("name")+" "+rs.getString("surname");
                uid=rs.getInt("uid");
             }
 
@@ -72,7 +72,7 @@ public class UserImpl implements IUser {
         }
 
 
-        return status;  //false olursa hata oolduğunu anlıcaz
+        return status;
     }
 
 

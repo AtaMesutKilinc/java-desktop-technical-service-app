@@ -2,18 +2,18 @@ package props;
 
 public class User {
 
-    //db deki isimlerle aynı olmalı daha easy
+
     private int uid;
     private String name;
     private String surname;
     private String email;
     private String password;
 
-    public User() {  //set metodlarını kullanmak için boşta lazım
+    public User() {
     }
 
     public User(int uid, String name, String surname, String email, String password) {
-        //elzem değil.user nesnesi çağrıldığında daha sade olur.
+
         this.uid = uid;
         this.name = name;
         this.surname = surname;
@@ -62,7 +62,7 @@ public class User {
     }
 
     @Override
-    public String toString() {  //bu program çalıştığında içinde bulunan değerler oto çalışcağından dolayı tüm değerleri görmüş oluruz.
+    public String toString() {
         return "User{" +
                 "uid=" + uid +
                 ", name='" + name + '\'' +

@@ -5,42 +5,41 @@ import java.sql.DriverManager;
 
 public class DB {
 
-    private final String driver="org.sqlite.JDBC";     //driver değişmeisne ve dışardan erişilmesine gerk yok
-    private String url="jdbc:sqlite:db/"; //jdbc protokolü ile sqlite a bağlan jdbc sabit        //içindeki bilgiler dğeişmeyecek..
-    private final String dbName="tecnic_service.db";     //
+    private final String driver="org.sqlite.JDBC";
+    private String url="jdbc:sqlite:db/";
+    private final String dbName="tecnic_service.db";
 
     //Connection Class
     private Connection conn= null;
 
 
 
-    //2 constructora ihtiyac var
-    //1 i default
+
     public DB(){
-        this.url=this.url+dbName;  //finaldeki dbname bu
-    }
-    //2. parameteli dbname e göre verilen db e göre yapılmalı. bağlantı. örneğin user a bağlancaksak user ı vermeliyiz.
-    public DB(String dbName){
-        this.url=this.url+dbName; //başka dbismi burdaki parametredeki dbnamei aldı.
+        this.url=this.url+dbName;
     }
 
-    public Connection connect(){ //java dışarı ile bağlantı kuraacağı zaman trycach elzemdir.dosya işlemleri db için
+    public DB(String dbName){
+        this.url=this.url+dbName;
+    }
+
+    public Connection connect(){
         try {
-            //class for name: derlenmiş class uzantısının kullanımını sağlar. .jar dosyalar kullanıma hazırdır.. .java uzantılı dosyalar kullanıma hazır değildir.
-            Class.forName(driver);//driverı çalıştır tetikle.
-            conn = DriverManager.getConnection(url);//sqlite e bağlanrt için gerekli
+
+            Class.forName(driver);
+            conn = DriverManager.getConnection(url);
             System.out.println("Connection Success");
 
         }catch (Exception ex){
-            System.err.println("Connection Error: "+ex); //connection hatası
+            System.err.println("Connection Error: "+ex);
         }
-        return conn;  //brisi connect metodyuna başvurduğunda connecton nesnesi dönmeli
+        return conn;
     }
 
     //db close
-    public void close(){//method halinde daha iyi.
+    public void close(){
         try {
-            if (!conn.isClosed()){//connection açıksa
+            if (!conn.isClosed()){
                 conn.close();
             }
         }catch (Exception ex){

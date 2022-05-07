@@ -43,10 +43,10 @@ public class Services extends Base {
 
     public int rowValue(){
 
-        int column = 0; //1. kolondakini al.
-        row = tblCustomer.getSelectedRow(); //seçili olan row u getir.  //dizi elemanı gibi 0 dan başlar row
+        int column = 0;
+        row = tblCustomer.getSelectedRow();
         value = (int) tblCustomer.getModel().getValueAt(row, column);
-        String cid= String.valueOf(tblCustomer.getValueAt(row,0));  //cast ettik obje olduğu için.
+        String cid= String.valueOf(tblCustomer.getValueAt(row,0));
         String name= String.valueOf(tblCustomer.getValueAt(row,1));
         String surname= String.valueOf(tblCustomer.getValueAt(row,2));
         String email= String.valueOf(tblCustomer.getValueAt(row,3));
@@ -61,11 +61,11 @@ public class Services extends Base {
 
     public int rowValueService(int colomn){
 
-        int column = colomn; //1. kolondakini al.
-        rowService = tblService.getSelectedRow(); //seçili olan row u getir.  //dizi elemanı gibi 0 dan başlar row
+        int column = colomn;
+        rowService = tblService.getSelectedRow();
         serviceValueSid =  (int) tblService.getModel().getValueAt(rowService, column);
         String sid= String.valueOf(tblService.getValueAt(rowService,0));
-        String name= String.valueOf(tblService.getValueAt(rowService,1));  //cast ettik obje olduğu için.
+        String name= String.valueOf(tblService.getValueAt(rowService,1));
         String surname= String.valueOf(tblService.getValueAt(rowService,2));
         String email= String.valueOf(tblService.getValueAt(rowService,3));
         String phone= String.valueOf(tblService.getValueAt(rowService,4));
@@ -238,7 +238,7 @@ public class Services extends Base {
             if (answer==0){
 
                 serviceImpl.serviceUpdate(service);
-                tblService.setModel(serviceImpl.serviceTable(0)); //tabloyu refresh et
+                tblService.setModel(serviceImpl.serviceTable(0));
 //                System.out.println(row+" update");
                 txtTitle.setText("");
                 txtDetails.setText("");
@@ -250,8 +250,8 @@ public class Services extends Base {
             }
         }
         else{
-            JOptionPane.showMessageDialog(this,"Please choose."); //this kendini burada ortala
-            //show confirm anlaşmayı kabul etmek istiyor musun.
+            JOptionPane.showMessageDialog(this,"Please choose.");
+
         }
 
 
@@ -261,11 +261,11 @@ public class Services extends Base {
     private void btnDeleteClick(ActionEvent e) {
         if (serviceValueSid !=-1){
             int answer=JOptionPane.showConfirmDialog(this,"Are you sure you want to delete the service?","Delete Window",JOptionPane.YES_OPTION);//parent component nerede görüneceği this button
-            System.out.println(answer); //butonların sırası soldan başlayarak 0 1 buton sırası öyle belirlenir.
+            System.out.println(answer);
 
             if (answer==0){
                 serviceImpl.serviceDelete(serviceValueSid);
-                tblService.setModel(serviceImpl.serviceTable(0)); //tabloyu refresh et
+                tblService.setModel(serviceImpl.serviceTable(0));
                 txtTitle.setText("");
                 txtDetails.setText("");
                 txtPrice.setText("");
@@ -275,8 +275,8 @@ public class Services extends Base {
         }
 
         else{
-            JOptionPane.showMessageDialog(this,"Please choose."); //this kendini burada ortala
-            //show confirm anlaşmayı kabul etmek istiyor musun.
+            JOptionPane.showMessageDialog(this,"Please choose.");
+
         }
     }
 

@@ -24,7 +24,7 @@ public class CustomerAdd extends Base {
     int value;
     public CustomerAdd() {
         initComponents();
-        tblCustomer.setModel(customerImpl.customerModel()); //modeli tablonun içine gönderdik
+        tblCustomer.setModel(customerImpl.customerModel());
         lblName.setText("Sn. "+ UserImpl.name);
     }
 
@@ -34,9 +34,9 @@ public class CustomerAdd extends Base {
 
     public void rowValue(){
         int column = 0; //1. kolondakini al.
-        row = tblCustomer.getSelectedRow(); //seçili olan row u getir.  //dizi elemanı gibi 0 dan başlar row
+        row = tblCustomer.getSelectedRow();
         value = (int) tblCustomer.getModel().getValueAt(row, column);
-        String cid= String.valueOf(tblCustomer.getValueAt(row,0));  //cast ettik obje olduğu için.
+        String cid= String.valueOf(tblCustomer.getValueAt(row,0));
         String name= String.valueOf(tblCustomer.getValueAt(row,1));
         String surname= String.valueOf(tblCustomer.getValueAt(row,2));
         String email= String.valueOf(tblCustomer.getValueAt(row,3));
@@ -68,42 +68,41 @@ public class CustomerAdd extends Base {
         }else if (email.equals("")){
             lblCustomerError.setText("Email is Empty!!!");
             txtEmail.requestFocus();
-        }else if(!Utils.Util.isValidEmailAddress(email)){ //fprmatı başkaysa
+        }else if(!Utils.Util.isValidEmailAddress(email)){
             lblCustomerError.setText("Email Validation Error!!!");
             txtEmail.requestFocus();
-        }else if (phone.equals("")){ //boşşa sıfırsa
+        }else if (phone.equals("")){
             lblCustomerError.setText("Phone is Empty!!!");
-            txtPhone.requestFocus();//imleç otomatik olarak passwworde gelicek
+            txtPhone.requestFocus();
         }
-        else if (address.equals("")){ //boşşa sıfırsa
+        else if (address.equals("")){
             lblCustomerError.setText("Adress is Empty!!!");
-            txtAddress.requestFocus();//imleç otomatik olarak passwworde gelicek
+            txtAddress.requestFocus();
         }else {
             lblCustomerError.setText("");
             Customer customer= new Customer(0,name,surname,email,phone,address);
 
-            return customer; //iş yolunda ise customeri dön
+            return customer;
         }
-        return null; //eğer customer boşssa null dönecek
+        return null;
 
     }
 
     private void btnAddClick(ActionEvent e) {
-        Customer customer =fncDataValid(); //fncdatavaliddeki dolu cus ı aldık.. fncdata yeni nesne üretir. üretilmiş nesneyi referansın içine atıyor. burda yeni referans almadık atama işlemi.
-        //bellekte ayrılmış nesnenin farklı 2 referansı oluşur.1 nesnenin 2pointerı var.
+        Customer customer =fncDataValid();
 
         if(customer !=null){
             int status=customerImpl.customerInsert(customer);
             if (status>0){
                 System.out.println("Ekleme Başarılı");
-                tblCustomer.setModel(customerImpl.customerModel()); //tabloyu refresh et
+                tblCustomer.setModel(customerImpl.customerModel());
                 txtName.setText("");
                 txtSurname.setText("");
                 txtEmail.setText("");
                 txtPhone.setText("");
                 txtAddress.setText("");
             }else {
-                //buraya düştüyse hata var. -1 ise email unique değil
+
                 if (status==-1){
                     lblCustomerError.setText("Email or Phone number already exists.");
                 }else{
@@ -132,7 +131,7 @@ public class CustomerAdd extends Base {
 
             if (answer==0){
                customerImpl.customerUpdate(customer);
-                tblCustomer.setModel(customerImpl.customerModel()); //tabloyu refresh et
+                tblCustomer.setModel(customerImpl.customerModel());
 //                System.out.println(row+" update");
                 txtName.setText("");
                 txtSurname.setText("");
@@ -144,8 +143,8 @@ public class CustomerAdd extends Base {
             }
         }
         else{
-            JOptionPane.showMessageDialog(this,"Please choose."); //this kendini burada ortala
-            //show confirm anlaşmayı kabul etmek istiyor musun.
+            JOptionPane.showMessageDialog(this,"Please choose.");
+
         }
 
     }
@@ -153,7 +152,7 @@ public class CustomerAdd extends Base {
     private void btnDeleteClick(ActionEvent e) {
         if (row !=-1){
             int answer=JOptionPane.showConfirmDialog(this,"Are you sure you want to delete the customer?","Delete Window",JOptionPane.YES_OPTION);//parent component nerede görüneceği this button
-            System.out.println(answer); //butonların sırası soldan başlayarak 0 1 buton sırası öyle belirlenir.
+            System.out.println(answer);
 
             if (answer==0){
                 customerImpl.customerDelete(value);
@@ -169,8 +168,8 @@ public class CustomerAdd extends Base {
         }
 
         else{
-            JOptionPane.showMessageDialog(this,"Please choose."); //this kendini burada ortala
-            //show confirm anlaşmayı kabul etmek istiyor musun.
+            JOptionPane.showMessageDialog(this,"Please choose.");
+
         }
     }
 
