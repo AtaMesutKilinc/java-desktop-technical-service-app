@@ -4,6 +4,7 @@
 
 package views;
 
+import javax.swing.border.*;
 import models.CustomerImpl;
 import models.UserImpl;
 import props.Customer;
@@ -210,7 +211,8 @@ public class CustomerAdd extends Base {
         //======== this ========
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
-        setTitle("Customer Add");
+        setTitle("Customer");
+        setIconImage(new ImageIcon(getClass().getResource("/customerPage.png")).getImage());
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -229,6 +231,7 @@ public class CustomerAdd extends Base {
 
         //======== panel1 ========
         {
+            panel1.setBorder(new TitledBorder("Customer Transactions"));
 
             //---- label2 ----
             label2.setText("Name");
@@ -263,7 +266,7 @@ public class CustomerAdd extends Base {
             btnUpdate.addActionListener(e -> btnUpdateClick(e));
 
             //---- btnDelete ----
-            btnDelete.setIcon(new ImageIcon(getClass().getResource("/deleteBtn.png")));
+            btnDelete.setIcon(new ImageIcon(getClass().getResource("/DeleteButtonIcon.png")));
             btnDelete.setToolTipText("Delete");
             btnDelete.setFocusable(false);
             btnDelete.addActionListener(e -> btnDeleteClick(e));
@@ -279,26 +282,28 @@ public class CustomerAdd extends Base {
                         .addContainerGap()
                         .addGroup(panel1Layout.createParallelGroup()
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(label2, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtName, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(label3, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSurname))
-                            .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(label6, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(panel1Layout.createParallelGroup()
                                     .addGroup(panel1Layout.createSequentialGroup()
                                         .addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(lblCustomerError, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblCustomerError, GroupLayout.PREFERRED_SIZE, 470, GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnUpdate, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(scrollPane1)))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(label2, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtName, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(label3, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSurname, GroupLayout.PREFERRED_SIZE, 302, GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(label4, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -306,8 +311,7 @@ public class CustomerAdd extends Base {
                                 .addGap(18, 18, 18)
                                 .addComponent(label5, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPhone, GroupLayout.PREFERRED_SIZE, 317, GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(txtPhone)))
                         .addContainerGap())
             );
             panel1Layout.setVerticalGroup(
@@ -316,9 +320,9 @@ public class CustomerAdd extends Base {
                         .addContainerGap()
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(label3, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSurname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(label2, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName))
+                            .addComponent(txtName)
+                            .addComponent(txtSurname, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(label4, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
@@ -331,10 +335,10 @@ public class CustomerAdd extends Base {
                             .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnDelete)
                             .addComponent(btnAdd)
                             .addComponent(btnUpdate)
-                            .addComponent(lblCustomerError, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblCustomerError, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDelete))
                         .addGap(19, 19, 19))
             );
         }
@@ -385,8 +389,8 @@ public class CustomerAdd extends Base {
                         .addComponent(lblName, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                    .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 228, GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                     .addContainerGap())
         );
         pack();

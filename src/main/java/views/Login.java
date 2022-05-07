@@ -4,6 +4,7 @@
 
 package views;
 
+import Utils.Mail;
 import models.UserImpl;
 
 import java.awt.*;
@@ -39,6 +40,16 @@ public class Login extends Base {
         initComponents();
         txtEmail.setText("ata@mail.com"); //dolu getir.
         txtPassword.setText("12345");
+
+        //Mail atmak için
+
+//        //from, password, to, subject, message
+//        Mail.send(
+//                "ata_0123@hotmail.com",
+//                "JAVA SUBJECT",
+//                "İleti Mesajı"
+//
+//        );
     }
 
     private void btnLoginClick(ActionEvent e) {
@@ -221,10 +232,10 @@ public class Login extends Base {
                                 .addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtPassword, GroupLayout.PREFERRED_SIZE, 177, GroupLayout.PREFERRED_SIZE))
                             .addGap(0, 37, Short.MAX_VALUE))
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addGap(89, 89, 89)
+                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                             .addComponent(btnLogin)
-                            .addContainerGap(98, Short.MAX_VALUE))))
+                            .addGap(88, 88, 88))))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()

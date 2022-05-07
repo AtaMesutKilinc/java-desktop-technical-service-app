@@ -42,6 +42,7 @@ public class Services extends Base {
 
 
     public int rowValue(){
+
         int column = 0; //1. kolondakini al.
         row = tblCustomer.getSelectedRow(); //seçili olan row u getir.  //dizi elemanı gibi 0 dan başlar row
         value = (int) tblCustomer.getModel().getValueAt(row, column);
@@ -52,6 +53,7 @@ public class Services extends Base {
         String phone= String.valueOf(tblCustomer.getValueAt(row,4));
         String address= String.valueOf(tblCustomer.getValueAt(row,5));
         System.out.println("val "+ value);
+        cmbStatus.setSelectedIndex(0);
         return value;
 
 
@@ -81,7 +83,7 @@ public class Services extends Base {
         txtDetails.setText(info);
         txtPrice.setText(price);
         txtDays.setText(days);
-//        cbxStatus.setSelectedItem();
+        cmbStatus.setSelectedItem(status);
         return serviceValueSid;
 
 
@@ -297,6 +299,7 @@ public class Services extends Base {
         txtPrice.setText("");
         txtDays.setText("");
 
+
     }
 
     private void tblCustomerMouseClicked(MouseEvent e) {
@@ -309,6 +312,7 @@ public class Services extends Base {
     }
 
     private void tblServiceKeyReleased(KeyEvent e) {
+
         rowValueService(0);
         rowValueServiceCid(5);
 
@@ -355,6 +359,7 @@ public class Services extends Base {
         setTitle("Services ");
         setResizable(false);
         setVisible(true);
+        setIconImage(new ImageIcon(getClass().getResource("/ServicePage.png")).getImage());
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -430,7 +435,7 @@ public class Services extends Base {
             btnUpdate.addActionListener(e -> btnUpdateClick(e));
 
             //---- btnDelete ----
-            btnDelete.setIcon(new ImageIcon(getClass().getResource("/deleteBtn.png")));
+            btnDelete.setIcon(new ImageIcon(getClass().getResource("/DeleteButtonIcon.png")));
             btnDelete.setToolTipText("Delete");
             btnDelete.setFocusable(false);
             btnDelete.addActionListener(e -> btnDeleteClick(e));
@@ -476,25 +481,28 @@ public class Services extends Base {
                                         .addGap(18, 18, 18)
                                         .addComponent(btnDelete, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE))
                                     .addGroup(panel1Layout.createSequentialGroup()
-                                        .addComponent(label4, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtTitle, GroupLayout.PREFERRED_SIZE, 156, GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(label6, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(scrollPane2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(label4, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtTitle, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(label6, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addGroup(panel1Layout.createParallelGroup()
                                     .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(label5, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
                                         .addComponent(label2, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(label7, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblCustomerError, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(cmbStatus, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(txtDays, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(txtPrice, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))))
+                                .addGroup(panel1Layout.createParallelGroup()
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblCustomerError, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panel1Layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addGroup(panel1Layout.createParallelGroup()
+                                            .addComponent(cmbStatus, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(txtPrice, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                                .addComponent(txtDays, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                                .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))))))
                         .addGap(18, 18, 18)
                         .addComponent(scrollPane3, GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
                         .addContainerGap())
@@ -520,15 +528,15 @@ public class Services extends Base {
                             .addComponent(txtPrice, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbStatus, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label7, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(label7, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbStatus, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(lblCustomerError, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAdd)
-                            .addComponent(btnUpdate)
-                            .addComponent(btnDelete))
+                        .addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnAdd, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUpdate, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelete, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(8, 8, 8))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)

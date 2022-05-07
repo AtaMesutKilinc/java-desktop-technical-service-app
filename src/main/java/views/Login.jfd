@@ -4,7 +4,7 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {comp pnlIcon:::::x, par l {seq {space :::p, par l {comp lblError:::::x, seq {space :p:106:p, comp label1:::p::p, space :0:105:x}}, space :::p}, seq {space :p:12:p, par l {comp lblEmail:::p:47:p, comp lblPassword:::p::p}, space :::p, par l {comp txtEmail:::p:177:p, comp txtPassword:::p:177:p}, space :0:37:x}, seq l {space :p:89:p, comp btnLogin:::p::p, space ::98:x}}}}"
+			"$horizontalGroup": "par l {seq l {comp pnlIcon:::::x, par l {seq {space :::p, par l {comp lblError:::::x, seq {space :p:106:p, comp label1:::p::p, space :0:105:x}}, space :::p}, seq {space :p:12:p, par l {comp lblEmail:::p:47:p, comp lblPassword:::p::p}, space :::p, par l {comp txtEmail:::p:177:p, comp txtPassword:::p:177:p}, space :0:37:x}, seq t {space ::99:x, comp btnLogin:::p::p, space :p:88:p}}}}"
 			"$verticalGroup": "par l {seq l {space ::29:x, comp label1:::p:80:p, space s:::p, par b {comp txtEmail::b:p::p, comp lblEmail::b:p:30:p}, space s:::p, par b {comp lblPassword::b:p:30:p, comp txtPassword::b:p::p}, space :p:18:p, comp lblError:::p:25:p, space :::p, comp btnLogin:::p::p, space :p:55:p}, comp pnlIcon::l:::x}"
 		} ) {
 			name: "this"

@@ -4,16 +4,33 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space ::536:x, comp lblName:::p:266:p, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp lblName:::p:25:p, space ::477:x}}"
+			"$horizontalGroup": "par l {seq l {space :p:163:p, comp label3:::p::p, space s:::p, comp txtSearchServiceArchive:::p:294:p, space ::257:x}, seq t {space :::p, par t {comp scrollPane1::::796:x, seq {space :0:530:x, comp lblName:::p:266:p}}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp lblName:::p:25:p, space s:::p, par b {comp label3::b:p:27:p, comp txtSearchServiceArchive::b:p::p}, space ::23:x, comp scrollPane1:::p:400:p, space :::p}}"
 		} ) {
 			name: "this"
 			"resizable": false
-			"title": "Archive"
+			"title": "Products Archive"
+			"defaultCloseOperation": 2
+			"iconImage": new com.jformdesigner.model.SwingIcon( 0, "/ArchivePage.png" )
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowClosed", "thisWindowClosed", true ) )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "lblName"
 				"text": " "
 				"horizontalAlignment": 4
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "tblServiceArchive"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txtSearchServiceArchive"
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "txtSearchKeyReleased", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Service Search"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 5, 5 )
